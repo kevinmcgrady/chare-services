@@ -25,6 +25,12 @@ export class Nft {
 
   @Prop({ required: true })
   endDate: Date;
+
+  @Prop({ required: true })
+  price: string;
+
+  @Prop({ required: true })
+  highestBid: string;
 }
 
 export const NftSchema = SchemaFactory.createForClass(Nft);
