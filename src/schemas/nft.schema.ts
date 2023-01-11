@@ -1,5 +1,7 @@
+import * as mongoose from 'mongoose';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
+import { Creator } from './creator.schema';
 
 export type NftDocument = HydratedDocument<Nft>;
 
@@ -31,6 +33,13 @@ export class Nft {
 
   @Prop({ required: true })
   highestBid: string;
+
+  @Prop({
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Creator',
+    required: true,
+  })
+  creator: Creator;
 }
 
 export const NftSchema = SchemaFactory.createForClass(Nft);

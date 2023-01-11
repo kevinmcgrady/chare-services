@@ -2,7 +2,6 @@ import { Model } from 'mongoose';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Nft, NftDocument } from '../schemas/nft.schema';
-import { NftDTO } from './nft.dto';
 
 @Injectable()
 export class NftService {
