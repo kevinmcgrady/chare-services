@@ -5,6 +5,7 @@ import {
   HttpStatus,
   Param,
 } from '@nestjs/common';
+
 import { NftService } from './nft.service';
 
 @Controller('nft')
@@ -31,5 +32,16 @@ export class NftController {
     }
 
     return nft;
+  }
+
+  @Get('/creator/:id')
+  async getAllNftsForCreator(@Param() params) {
+    const nfts = await this.nftService.getAllNftsForCreator(params.id);
+
+    if (!nfts) {
+      return new HttpException('No nfts found', HttpStatus.NOT_FOUND);
+    }
+
+    return nfts;
   }
 }

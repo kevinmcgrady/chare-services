@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
-import { CreatorService } from './creator.service';
-import { CreatorController } from './creator.controller';
 import { MongooseModule } from '@nestjs/mongoose';
-import { Creator, CreatorSchema } from 'src/schemas/creator.schema';
+
+import { Creator, CreatorSchema } from '../schemas/creator.schema';
+import { CreatorController } from './creator.controller';
+import { CreatorService } from './creator.service';
 
 @Module({
   imports: [

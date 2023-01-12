@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { CollectionDocument, Collection } from 'src/schemas/collection.schema';
+
+import { Collection, CollectionDocument } from '../schemas/collection.schema';
 
 @Injectable()
 export class CollectionService {
@@ -12,5 +13,9 @@ export class CollectionService {
 
   async getAllCollections() {
     return await this.collectionModel.find({}).populate('creator');
+  }
+
+  async getAllCollectionsForCreator(id: string) {
+    return this.collectionModel.find({ creator: id }).populate('creator');
   }
 }

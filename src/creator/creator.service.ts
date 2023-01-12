@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { CreatorDocument, Creator } from 'src/schemas/creator.schema';
+
+import { Creator, CreatorDocument } from '../schemas/creator.schema';
 import { CreatorDTO } from './models/creator.dto';
 
 @Injectable()
