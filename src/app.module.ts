@@ -7,6 +7,7 @@ import { ConfigModule } from '@nestjs/config';
 import { CategoryModule } from './category/category.module';
 import { CollectionModule } from './collection/collection.module';
 import { CreatorModule } from './creator/creator.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { CreatorModule } from './creator/creator.module';
     CategoryModule,
     CollectionModule,
     CreatorModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

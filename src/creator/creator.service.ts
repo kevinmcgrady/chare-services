@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreatorDocument, Creator } from 'src/schemas/creator.schema';
+import { CreatorDTO } from './models/creator.dto';
 
 @Injectable()
 export class CreatorService {
@@ -12,5 +13,14 @@ export class CreatorService {
 
   async getAllCreators() {
     return await this.creatorModel.find({});
+  }
+
+  async getOneCreator(username: string) {
+    return await this.creatorModel.findOne({ username: username });
+  }
+
+  async createCreator(creator: CreatorDTO) {
+    const createdCreator = new this.creatorModel(creator);
+    return await createdCreator.save();
   }
 }

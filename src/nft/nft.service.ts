@@ -8,10 +8,12 @@ export class NftService {
   constructor(@InjectModel(Nft.name) private nftModel: Model<NftDocument>) {}
 
   async getAllNfts() {
-    return await this.nftModel.find({});
+    return await this.nftModel.find({}).populate('creator');
   }
 
   async getSingleNft(slug: string) {
-    return await this.nftModel.findOne({ slug: slug });
+    return await (
+      await this.nftModel.findOne({ slug: slug })
+    ).populate('creator');
   }
 }

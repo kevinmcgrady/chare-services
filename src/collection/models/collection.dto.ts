@@ -1,8 +1,6 @@
-import { CreatorDTO } from 'src/creator/models/creator.dto';
-
 export interface CollectionDTO {
   title: string;
-  creator: CreatorDTO;
+  creator: string;
   mainImage: string;
   additionalImages: string[];
 }

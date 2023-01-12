@@ -8,4 +8,5 @@ export interface NftDTO {
   endDate: Date;
   price: string;
   highestBid: string;
+  creator: string;
 }

@@ -11,6 +11,6 @@ export class CollectionService {
   ) {}
 
   async getAllCollections() {
-    return await this.collectionModel.find({});
+    return await this.collectionModel.find({}).populate('creator');
   }
 }
