@@ -21,7 +21,7 @@ export class Nft {
   mintedOn: Date;
 
   @Prop({ required: true })
-  description: string;
+  description: string[];
 
   @Prop({ required: true })
   tags: string[];
