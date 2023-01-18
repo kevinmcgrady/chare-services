@@ -11,8 +11,4 @@ import { NftService } from './nft.service';
   controllers: [NftController],
   providers: [NftService],
 })
-export class NftModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer.apply(ValidateTokenMiddleware).forRoutes('nft');
-  }
-}
+export class NftModule {}
