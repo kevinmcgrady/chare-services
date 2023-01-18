@@ -1,7 +1,6 @@
-import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
-import { ValidateTokenMiddleware } from '../auth/middleware/validate-token/validate-token.middleware';
 import { Nft, NftSchema } from '../schemas/nft.schema';
 import { NftController } from './nft.controller';
 import { NftService } from './nft.service';
