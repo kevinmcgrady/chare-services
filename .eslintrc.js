@@ -27,5 +27,6 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
+    'import/no-unresolved': 'off',
   },
 };

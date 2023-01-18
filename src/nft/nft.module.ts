@@ -1,6 +1,7 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
+import { ValidateTokenMiddleware } from '../auth/middleware/validate-token/validate-token.middleware';
 import { Nft, NftSchema } from '../schemas/nft.schema';
 import { NftController } from './nft.controller';
 import { NftService } from './nft.service';
@@ -10,4 +11,8 @@ import { NftService } from './nft.service';
   controllers: [NftController],
   providers: [NftService],
 })
-export class NftModule {}
+export class NftModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(ValidateTokenMiddleware).forRoutes('nft');
+  }
+}
