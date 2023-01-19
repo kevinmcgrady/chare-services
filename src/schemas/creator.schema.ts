@@ -5,7 +5,10 @@ export type CreatorDocument = HydratedDocument<Creator>;
 
 @Schema()
 export class Creator {
-  @Prop({ required: true })
+  @Prop({
+    default:
+      'https://storage.googleapis.com/chare-5cc75.appspot.com/users/Avatar.svg',
+  })
   image: string;
 
   @Prop({ required: true, unique: true })

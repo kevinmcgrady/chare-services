@@ -8,6 +8,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   initFirebase();
   app.use(cookieParser());
+  app.enableCors();
   await app.listen(process.env.PORT);
 }
 bootstrap();

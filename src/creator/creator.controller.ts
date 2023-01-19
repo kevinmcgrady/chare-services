@@ -39,6 +39,15 @@ export class CreatorController {
 
   @Post('create')
   async createNewCreator(@Body() creator: CreatorDTO) {
-    return await this.creatorService.createCreator(creator);
+    const newCreator = await this.creatorService.createCreator(creator);
+
+    if (!newCreator) {
+      return new HttpException(
+        'Creater was not created',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+
+    return newCreator;
   }
 }
